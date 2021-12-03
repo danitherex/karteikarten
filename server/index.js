@@ -34,7 +34,7 @@ async function main() {
     const collection = db.collection(collectionName);
 
 
-    app.get("/items", async (req, res) => {
+    app.get("/api/items", async (req, res) => {
       try {
         const result = await collection.find().toArray();
         console.log(result);
@@ -45,7 +45,7 @@ async function main() {
       }
     });
 
-    app.get("/items/:itemId", async (req, res) => {
+    app.get("/api/items/:itemId", async (req, res) => {
       try {
         const id = req.params.itemId;
         console.log(`Recieved request for item ${id}`);
@@ -63,7 +63,7 @@ async function main() {
       }
     });
 
-    app.post("/items", async (req, res) => {
+    app.post("/api/items", async (req, res) => {
       try {
         const data = req.body;
         const result = await collection.insertOne(data);
@@ -77,7 +77,7 @@ async function main() {
       }
     });
 
-    app.put("/items/:itemId", (req, res) => {
+    app.put("/api/items/:itemId", (req, res) => {
 
       try {
           const id = req.params.itemId;
@@ -96,7 +96,7 @@ async function main() {
       }
   });
 
-    app.delete("/items/:itemId", async (req, res) => {
+    app.delete("/api/items/:itemId", async (req, res) => {
       try {
         const id = req.params.itemId;
         console.log(`Recieved request for item ${id}`);
