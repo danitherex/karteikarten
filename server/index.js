@@ -77,21 +77,24 @@ async function main() {
       }
     });
 
-    app.put("/items/:itemId", async (req, res) => {
+    app.put("/items/:itemId", (req, res) => {
+
       try {
-        const id = req.params.itemId;
-        const data = JSON.parse(req.body);
-        console.log(`Recieved request for item ${id}`);
-        const result = await collection.updateOne({
-          "_id": ObjectId(id)
-        }, data);
-        console.log(`Updated id ${id} successfully with ${data}`);
-        res.status(204).end();
+          const id = req.params.itemId;
+          console.log(`Received PUT for item ${id}`);
+          var ObjectId = require('mongodb').ObjectId;
+          var o_id = new ObjectId(id);
+          const data = req.body;
+          collection.updateOne({ _id: o_id }, { $set: data });
+
+          const result = collection.find({ _id: o_id }).toArray();
+          console.log(result);
+          res.status(204).end();
       } catch (err) {
-        console.error(err);
-        res.status(500).send(err);
+          console.error(err);
+          res.status(500).send(err);
       }
-    });
+  });
 
     app.delete("/items/:itemId", async (req, res) => {
       try {
