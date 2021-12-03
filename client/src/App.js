@@ -1,9 +1,9 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import hallo from "./seiten/hallo";
-import hi from "./seiten/hi";
+import hallo from "../seiten/hallo";
+import hi from "../seiten/hi";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -34,10 +34,12 @@ function App() {
         </div>
       </nav>
       <div className="container mt-3">
-        <Routes>
-          <Route path={"/"} component={hallo} />
-          <Route path={"/hi"} component={hi} />
-        </Routes>
+        <Router>
+          <Routes>
+            <Route exact path={"/"} element={<hallo/>} />
+            <Route exact path={"/hi"} element={<hi/>} />
+          </Routes>
+        </Router>
       </div>
     </div>
 
