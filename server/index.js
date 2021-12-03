@@ -4,7 +4,7 @@ var ObjectId = require('mongodb').ObjectID;
 
 const path = require("path");
 const dbName = "karteikarten";
-const mongoUri = `mongodb+srv://WebEng:<password>@karteikarten.fkotr.mongodb.net/${dbName}`;
+const mongoUri = `mongodb+srv://WebEng:TINF21AI2@karteikarten.fkotr.mongodb.net/${dbName}`;
 const collectionName = "karten";
 const PORT = process.env.PORT || 3001;
 
