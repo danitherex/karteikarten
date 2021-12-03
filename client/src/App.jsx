@@ -2,17 +2,11 @@ import React from "react";
 import {Outlet, Link} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import hallo from "./seiten/hallo";
-import hi from "./seiten/hi";
 
 function App() {
   const [data, setData] = React.useState(null);
 
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+  
 
   return (
     <div>
