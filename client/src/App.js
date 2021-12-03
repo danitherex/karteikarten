@@ -1,5 +1,4 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {Outlet, Link} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import hallo from "./seiten/hallo";
@@ -33,14 +32,7 @@ function App() {
           </ul>
         </div>
       </nav>
-      <div>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<hallo />} />
-            <Route path="/hi" element={<hi />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+      <Outlet />
     </div>
 
   );
