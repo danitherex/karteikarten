@@ -33,7 +33,14 @@ function App() {
           </ul>
         </div>
       </nav>
-      
+      <div>
+        <Router>
+          <Routes>
+            <Route exact path={"/"} element={<hallo/>} />
+            <Route exact path={"/hi"} element={<hi/>} />
+          </Routes>
+        </Router>
+      </div>
     </div>
 
   );
