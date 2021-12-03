@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import hallo from "./seiten/hallo";
@@ -34,12 +34,12 @@ function App() {
         </div>
       </nav>
       <div>
-        <Router>
+        <BrowserRouter>
           <Routes>
-            <Route exact path={"/"} element={<hallo/>} />
-            <Route exact path={"/hi"} element={<hi/>} />
+            <Route path="/" element={<hallo />} />
+            <Route path="/hi" element={<hi />} />
           </Routes>
-        </Router>
+        </BrowserRouter>
       </div>
     </div>
 
