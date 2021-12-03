@@ -33,14 +33,7 @@ function App() {
           </ul>
         </div>
       </nav>
-      <div className="container mt-3">
-        <Router>
-          <Routes>
-            <Route exact path={"/"} element={<hallo/>} />
-            <Route exact path={"/hi"} element={<hi/>} />
-          </Routes>
-        </Router>
-      </div>
+      
     </div>
 
   );
