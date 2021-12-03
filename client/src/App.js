@@ -33,14 +33,13 @@ function App() {
           </ul>
         </div>
       </nav>
-      <div className="container mt-3">
+      </div>
+    </div>
+  <div className="container mt-3">
         <Routes>
           <Route path={"/"} component={hallo}></Route>
           <Route path={"/hi"} component={hi}></Route>
         </Routes>
-      </div>
-    </div>
-
   );
 }
 
