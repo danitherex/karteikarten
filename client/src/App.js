@@ -34,12 +34,13 @@ function App() {
         </div>
       </nav>
       </div>
-    </div>
+    
   <div className="container mt-3">
         <Routes>
           <Route path={"/"} component={hallo}></Route>
           <Route path={"/hi"} component={hi}></Route>
         </Routes>
+  </div>
   );
 }
 
