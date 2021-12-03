@@ -1,9 +1,9 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import "./seiten/hallo";
-import "./seiten/hi";
+import hallo from "./seiten/hallo";
+import hi from "./seiten/hi";
 
 function App() {
   const [data, setData] = React.useState(null);
@@ -34,10 +34,10 @@ function App() {
         </div>
       </nav>
       <div className="container mt-3">
-        <Switch>
+        <Routes>
           <Route path={"/"} component={hallo}></Route>
           <Route path={"/hi"} component={hi}></Route>
-        </Switch>
+        </Routes>
       </div>
     </div>
 
