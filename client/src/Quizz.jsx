@@ -20,9 +20,20 @@ class Quizz extends React.PureComponent {
         <Helmet>
           <title>{TITLE}</title>
         </Helmet>
-        <ul>
-          {state.data}
-        </ul>
+        <div>
+          <Form.Control type="text" placeholder="Vorderseite Karteikarte" />
+          <br />
+          <Form.Control type="text" placeholder="Rückseite Karteikarte" />
+          <br />
+          <Button variant="secondary" size="lg">
+            Karteikarte hinzufügen
+          </Button>
+          <br />
+          <Button variant="secondary" size="lg">
+            Lernen
+          </Button>
+          
+        </div>
       </>
     );
   }
