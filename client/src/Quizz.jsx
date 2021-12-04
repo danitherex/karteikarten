@@ -7,8 +7,8 @@ import axios from 'axios';
 const TITLE = 'Karteikarten';
 const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
-getFetch = () => {
-  axios.get(API).then((respond) =>
+const getFetch = () => {
+  axios.get(API).then((response) =>
   {
     const data = response.data
   }).catch(error => console.error(`Error: ${error}`));
