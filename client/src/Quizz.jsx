@@ -19,7 +19,7 @@ class Quizz extends React.PureComponent {
         this.setState({ karten });
       })
   }
-
+ 
   render() {
     return (
       <>
