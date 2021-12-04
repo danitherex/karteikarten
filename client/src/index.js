@@ -11,10 +11,6 @@ import Hi from "./seiten/hi";
 
 const rootElement = document.getElementById("root");
 render(
-  <BrowserRouter>
-  <Routes>
-    <Route index element={<Quizz />}/>
-    </Routes>
-</BrowserRouter>,
+  <App/>,
   rootElement
 );

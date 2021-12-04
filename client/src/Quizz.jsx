@@ -12,7 +12,9 @@ const getFetch = () => {
     const data = response.data
   }).catch(error => console.error(`Error: ${error}`));
 }
-function Quizz() {
+class App extends React.Component {
+
+  render() {
 
   return (
     <>
@@ -31,11 +33,10 @@ function Quizz() {
         <Button variant="secondary" size="lg">
           Lernen
         </Button>
-        <Outlet />
       </div>
     </>
   );
-}
+}}
 
 
 
