@@ -4,11 +4,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Helmet } from 'react-helmet';
 
 const TITLE = 'Karteikarten';
-
+const API = 'https://localhost:3001/api/items';
 
 class Quizz extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      hits: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch(API + DEFAULT_QUERY)
+      .then(response => response.json())
+      .then(data => this.setState({ hits: data.hits }));
+  }
   render() {
+    const { hits } = this.state;
     return (
       <>
         <Helmet>
@@ -43,6 +56,14 @@ class Quizz extends React.PureComponent {
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
+          <ul>
+            {hits.map(hit =>
+              <li key={hit.objectID}>
+                <a href={hit.url}>{hit.title}</a>
+              </li>
+            )}
+          </ul>
+
           <Outlet />
         </div>
       </>
