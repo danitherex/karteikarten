@@ -12,8 +12,8 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 const getFetch = () => {
   axios.get(API).then((response) => {
-    const data = response.data
-    console.l
+    const data = response.data;
+    console.log(data);
   }).catch(error => console.error(`Error: ${error}`));
 }
 class App extends React.Component {
