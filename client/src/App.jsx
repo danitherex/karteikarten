@@ -2,7 +2,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button, InputGroup, FormControl ,Carousel} from 'react-bootstrap';
 
 import axios from 'axios';
 
@@ -22,23 +22,47 @@ class App extends React.Component {
 
     return (
       <>
-        <Form>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Vorderseite</Form.Label>
-            <Form.Control type="vorderseite" placeholder="Vorderseite" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Rückseite</Form.Label>
-            <Form.Control type="rueckseite" placeholder="Rückseite Karteikarte" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
+        <InputGroup>
+          <InputGroup.Text>Vorderseite Karteikarte</InputGroup.Text>
+          <FormControl as="textarea" aria-label="vorderseite" />
+        </InputGroup>
+        <InputGroup>
+          <InputGroup.Text>Rückseite Karteikarte</InputGroup.Text>
+          <FormControl as="textarea" aria-label="rueckseite" />
+        </InputGroup>
+        <div className="mb-2">
+          <Button variant="primary" size="lg">
             Nächste Karte
-          </Button>
-          <Button variant="primary" type="submit">
+          </Button>{' '}
+          <Button variant="secondary" size="lg">
             Lernen
           </Button>
-        </Form>
+        </div>
+        <Carousel>
+          <Carousel.Item interval={null}>
+            <img
+              className="d-block w-100"
+              src="holder.js/800x400?text=First slide&bg=20232a"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>Vorderseite</h3>
+              <p>Warum ist die Banane krumm?</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item interval={null}>
+            <img
+              className="d-block w-100"
+              src="holder.js/800x400?text=Second slide&bg=20232a"
+              alt="Second slide"
+            />
+
+            <Carousel.Caption>
+              <h3>Rückseite</h3>
+              <p>Die Bananenblüte, die aus der Staude wächst, ist so schwer, dass sie sie einfach nach unten kippt</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
 
       </>
     );
