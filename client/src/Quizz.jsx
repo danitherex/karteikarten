@@ -1,20 +1,24 @@
-import { Outlet } from "react-router-dom";
-import React from "react";
-import { Form, Button } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Outlet } from 'react-router-dom';
+import React from 'react';
+import { Form, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 
 const TITLE = 'Karteikarten';
 const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
+getFetch = () => {
+  axios.get(API).then((respond) =>
+  {
+    const data = response.data
+  }).catch(error => console.error(`Error: ${error}`));
+}
 class Quizz extends React.PureComponent {
-  state = {
+  /*state = {
     data: null
-  }
-  componentDidMount() {
-    axios.get('/api/items').then(res => this.setState({ data: res }));
-  }
+  }*/
+  
+  
   render() {
     return (
       <>

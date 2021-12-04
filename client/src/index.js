@@ -13,9 +13,7 @@ render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Quiz />}>
-        <Route path="hallo" element={<Hallo />} />
-        <Route path="hi" element={<Hi />} />
-      </Route>
+        </Route>
     </Routes>
   </BrowserRouter>,
   rootElement
