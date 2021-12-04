@@ -77,11 +77,11 @@ class Quizz extends React.PureComponent {
               <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <ul>
-              {hits.map(hit =>
-                <li key={hit.objectID}>
-                  <a href={hit.url}>{hit.title}</a>
+              {items.map(item => (
+                <li key={item.id}>
+                  {item.name} {item.price}
                 </li>
-              )}
+              ))}
             </ul>
 
             <Outlet />
