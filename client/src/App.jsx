@@ -21,7 +21,6 @@ class App extends React.Component {
       <Helmet>
         <title>{TITLE}</title>
       </Helmet>
-      <div>
         <Form.Control type="text" placeholder="Vorderseite Karteikarte" />
         <br />
         <Form.Control type="text" placeholder="Rückseite Karteikarte" />
@@ -33,7 +32,6 @@ class App extends React.Component {
         <Button variant="secondary" size="lg">
           Lernen
         </Button>
-      </div>
     </>
   );
 }}
