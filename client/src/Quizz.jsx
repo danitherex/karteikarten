@@ -8,6 +8,8 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 class Quizz extends React.PureComponent {
 
+
+
   render() {
     return (
       <>
@@ -42,7 +44,7 @@ class Quizz extends React.PureComponent {
               <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
-          </form> 
+          </form>
 
           <Outlet />
         </div>
