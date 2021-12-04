@@ -42,7 +42,7 @@ class App extends React.Component {
           <Carousel.Item interval={null}>
             <img
               className="d-block w-100"
-              src="holder.js/800x400?text=First slide&bg=20232a"
+              src="back.jpg"
               alt="First slide"
             />
             <Carousel.Caption>
@@ -53,7 +53,7 @@ class App extends React.Component {
           <Carousel.Item interval={null}>
             <img
               className="d-block w-100"
-              src="holder.js/800x400?text=Second slide&bg=20232a"
+              src="back.jpg"
               alt="Second slide"
             />
 
