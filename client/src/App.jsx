@@ -39,7 +39,7 @@ class App extends React.Component {
           </Button>
         </div>
         <Carousel interval={null}>
-          <Carousel.Item >
+          <Carousel.Item style={{ 'height': "480px", 'width': "720px" }}>
             <img
               className="d-block w-100"
               src={image}
@@ -50,7 +50,7 @@ class App extends React.Component {
               <p>Warum ist die Banane krumm?</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item >
+          <Carousel.Item style={{ 'height': "480px", 'width': "720px" }}>
             <img
               className="d-block w-100"
               src={image}
