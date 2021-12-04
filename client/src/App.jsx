@@ -1,4 +1,4 @@
-
+import image from "./back.jpg"
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -38,11 +38,11 @@ class App extends React.Component {
             Lernen
           </Button>
         </div>
-        <Carousel>
-          <Carousel.Item interval={null}>
+        <Carousel interval={null}>
+          <Carousel.Item >
             <img
               className="d-block w-100"
-              src="back.jpg"
+              src={image}
               alt="First slide"
             />
             <Carousel.Caption>
@@ -50,10 +50,10 @@ class App extends React.Component {
               <p>Warum ist die Banane krumm?</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={null}>
+          <Carousel.Item >
             <img
               className="d-block w-100"
-              src="back.jpg"
+              src={image}
               alt="Second slide"
             />
 
