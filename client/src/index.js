@@ -12,8 +12,10 @@ const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Quizz/>}>
-        </Route>
+      <Route path="/" element={<Quizz />}/>
+      <Route path="hi" element={<Hallo />}/>
+      <Route path="hallo" element={<Hi />}/>
+      
     </Routes>
   </BrowserRouter>,
   rootElement
