@@ -16,7 +16,7 @@ class Quizz extends React.PureComponent {
   }
 
   componentDidMount() {
-    fetch(API + DEFAULT_QUERY)
+    fetch(API)
       .then(response => response.json())
       .then(data => this.setState({ hits: data.hits }));
   }
