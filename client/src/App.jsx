@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Button,Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import axios from 'axios';
 
