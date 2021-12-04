@@ -22,17 +22,6 @@ class App extends React.Component {
         <title>{TITLE}</title>
       </Helmet>
         <h1>Test</h1>
-        <Form.Control type="text" placeholder="Vorderseite Karteikarte" />
-        <br />
-        <Form.Control type="text" placeholder="Rückseite Karteikarte" />
-        <br />
-        <Button variant="secondary" size="lg">
-          Karteikarte hinzufügen
-        </Button>
-        <br />
-        <Button variant="secondary" size="lg">
-          Lernen
-        </Button>
     </>
   );
 }}
