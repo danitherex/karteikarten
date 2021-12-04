@@ -47,8 +47,7 @@ class App extends React.Component {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>Vorderseite</h3>
-              <p>Warum ist die Banane krumm?</p>
+              <h2>Warum ist die Banane krumm?</h2>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item >
@@ -60,8 +59,7 @@ class App extends React.Component {
             />
 
             <Carousel.Caption>
-              <h3>Rückseite</h3>
-              <p>Die Bananenblüte, die aus der Staude wächst, ist so schwer, dass sie sie einfach nach unten kippt</p>
+              <h2>Die Bananenblüte, die aus der Staude wächst, ist so schwer, dass sie sie einfach nach unten kippt</h2>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
