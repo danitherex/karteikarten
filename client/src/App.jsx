@@ -21,6 +21,7 @@ class App extends React.Component {
       <Helmet>
         <title>{TITLE}</title>
       </Helmet>
+        <h1>Test</h1>
         <Form.Control type="text" placeholder="Vorderseite Karteikarte" />
         <br />
         <Form.Control type="text" placeholder="Rückseite Karteikarte" />
