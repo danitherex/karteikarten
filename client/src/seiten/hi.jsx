@@ -1,6 +1,6 @@
 function hi() {
   return (
-    <div className="App">
+    <div className="Quizz">
       hi
     </div>
   );

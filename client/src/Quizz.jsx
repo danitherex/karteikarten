@@ -8,41 +8,35 @@ const TITLE = 'Karteikarten';
 const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 const getFetch = () => {
-  axios.get(API).then((response) =>
-  {
+  axios.get(API).then((response) => {
     const data = response.data
   }).catch(error => console.error(`Error: ${error}`));
 }
-class Quizz extends React.PureComponent {
-  /*state = {
-    data: null
-  }*/
-  
-  
-  render() {
-    return (
-      <>
-        <Helmet>
-          <title>{TITLE}</title>
-        </Helmet>
-        <div>
-          <Form.Control type="text" placeholder="Vorderseite Karteikarte" />
-          <br />
-          <Form.Control type="text" placeholder="Rückseite Karteikarte" />
-          <br />
-          <Button variant="secondary" size="lg">
-            Karteikarte hinzufügen
-          </Button>
-          <br />
-          <Button variant="secondary" size="lg">
-            Lernen
-          </Button>
-          <Outlet/>
-        </div>
-      </>
-    );
-  }
+function Quizz() {
+
+  return (
+    <>
+      <Helmet>
+        <title>{TITLE}</title>
+      </Helmet>
+      <div>
+        <Form.Control type="text" placeholder="Vorderseite Karteikarte" />
+        <br />
+        <Form.Control type="text" placeholder="Rückseite Karteikarte" />
+        <br />
+        <Button variant="secondary" size="lg">
+          Karteikarte hinzufügen
+        </Button>
+        <br />
+        <Button variant="secondary" size="lg">
+          Lernen
+        </Button>
+        <Outlet />
+      </div>
+    </>
+  );
 }
+
 
 
 
