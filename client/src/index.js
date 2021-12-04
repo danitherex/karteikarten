@@ -4,7 +4,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Quizz from "./Quizz";
+import App from "./App";
 import Hallo from "./seiten/hallo";
 import Hi from "./seiten/hi";
 

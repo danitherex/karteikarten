@@ -41,4 +41,4 @@ class App extends React.Component {
 
 
 
-export default Quizz;
+export default App;
