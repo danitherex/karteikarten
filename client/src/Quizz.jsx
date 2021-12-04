@@ -29,7 +29,7 @@ class Quizz extends React.PureComponent {
         <div>
 
           <ul>
-            {this.state.persons.map(person => <li>{person.name}</li>)}
+            {this.state.karten.map(k => <li>{k.name}</li>)}
           </ul>
           <Outlet />
         </div>
