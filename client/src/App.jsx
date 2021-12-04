@@ -27,7 +27,7 @@ class App extends React.Component {
           <FormControl as="textarea" aria-label="vorderseite" />
         </InputGroup>
         <InputGroup>
-          <InputGroup.Text>Rückseite Karteikarte&#8205; &#8205; &#8205; </InputGroup.Text>
+          <InputGroup.Text>Rückseite Karteikarte&#8205; &#8205; &#8205;&#8205;  </InputGroup.Text>
           <FormControl as="textarea" aria-label="rueckseite" />
         </InputGroup>
         <div className="mb-2">
