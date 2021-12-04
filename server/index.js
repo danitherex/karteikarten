@@ -8,7 +8,7 @@ const mongoUri = `mongodb+srv://WebEng:TINF21AI2@karteikarten.fkotr.mongodb.net/
 const collectionName = "karten";
 const PORT = process.env.PORT || 3001;
 
-
+// bullshiet
 async function main() {
 
   const app = express();
