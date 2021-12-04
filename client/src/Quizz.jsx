@@ -21,7 +21,7 @@ class Quizz extends React.PureComponent {
           <title>{TITLE}</title>
         </Helmet>
         <ul>
-          {data}
+          {state.data}
         </ul>
       </>
     );
