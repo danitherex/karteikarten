@@ -9,30 +9,24 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 class Quizz extends React.PureComponent {
   state = {
-    karten: []
+    persons: []
   }
-
   componentDidMount() {
-    axios.get(API)
+    axios.get(`https://lernenmitkarteikarten.herokuapp.com/api/items`)
       .then(res => {
-        const karten = res.data;
-        this.setState({ karten });
+        const persons = res.data;
+        this.setState({ persons });
       })
   }
- 
   render() {
     return (
       <>
         <Helmet>
           <title>{TITLE}</title>
         </Helmet>
-        <div>
-
-          <ul>
-            {this.state.karten.map(k => <li>{k.name}</li>)}
-          </ul>
-          <Outlet />
-        </div>
+        <ul>
+          {this.state.persons.map(person => <li>{person.name}</li>)}
+        </ul>
       </>
     );
   }
