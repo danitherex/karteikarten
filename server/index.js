@@ -31,9 +31,10 @@ async function main() {
 
     app.get("/api/items", async (req, res) => {
       try {
-        const result = await collection.find().toArray();
+        //const result = await collection.find().toArray();
         console.log(result);
-        res.json(result);
+
+        res.json({ message: "Hello from server!" });
       } catch (err) {
         console.log(err);
         res.status(500).send(err);
