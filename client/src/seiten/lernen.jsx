@@ -23,7 +23,8 @@ class Lernen extends React.Component {
       .then(res => {
         const karten = res.data;
         this.setState({ karten });
-        console.log(this.state.karten);
+        console.log(this.count_karten);
+        console.log(this.state.karten[1]);
         this.count_karten++;
         if (this.count_karten > karten.length - 1) {
           this.count_karten = 0;
