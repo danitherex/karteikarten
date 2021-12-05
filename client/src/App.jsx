@@ -63,7 +63,7 @@ class App extends React.Component {
             </Button>
             <ul>
         {hits.map(hit =>
-          <li key={hit.objectID}>
+          <li key={hit._id}>
             
           </li>
         )}
