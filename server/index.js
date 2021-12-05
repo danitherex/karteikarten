@@ -33,7 +33,6 @@ async function main() {
       try {
         const result = await collection.find().toArray();
         console.log(result);
-
         res.json(result);
       } catch (err) {
         console.log(err);
