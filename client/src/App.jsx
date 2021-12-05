@@ -37,7 +37,6 @@ class App extends React.Component {
   }
   render() {
     const { hits, isLoading, error } = this.state;
-    const objHits = JSON.parse(hits);
     if (error) {
       return <p>{error.message}</p>;
     }
@@ -55,7 +54,7 @@ class App extends React.Component {
             <title>{TITLE}</title>
           </Helmet>
           <InputGroup>
-            <InputGroup.Text>Vorderseite Karteikarte ${objHits._id}</InputGroup.Text>
+            <InputGroup.Text>Vorderseite Karteikarte ${hits._id}</InputGroup.Text>
             <FormControl as="textarea" aria-label="vorderseite" />#
           </InputGroup>
           <InputGroup>
