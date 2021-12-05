@@ -13,14 +13,14 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 class App extends React.Component {
   state = {
-    persons: []
+    karten: []
   }
 
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    axios.get(API)
       .then(res => {
         const persons = res.data;
-        this.setState({ persons });
+        this.setState({ karten });
       });
   }
 
@@ -60,7 +60,7 @@ class App extends React.Component {
           </div>
 
           <ul>
-            {this.state.persons.map(person => <li>{person.name}</li>)}
+            {this.state.karten.map(karte => <li>{karte.name}</li>)}
           </ul>
           <Outlet />
         </div>
