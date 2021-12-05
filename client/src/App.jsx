@@ -37,7 +37,7 @@ class App extends React.Component {
   }
   render() {
     const { hits, isLoading, error } = this.state;
-
+    const objHits = JSON.parse(hits);
     if (error) {
       return <p>{error.message}</p>;
     }
@@ -55,7 +55,7 @@ class App extends React.Component {
             <title>{TITLE}</title>
           </Helmet>
           <InputGroup>
-            <InputGroup.Text>Vorderseite Karteikarte</InputGroup.Text>
+            <InputGroup.Text>Vorderseite Karteikarte ${objHits}</InputGroup.Text>
             <FormControl as="textarea" aria-label="vorderseite" />
           </InputGroup>
           <InputGroup>
@@ -69,13 +69,7 @@ class App extends React.Component {
             <Button variant="secondary" size="lg" onClick={lernen}>
               Lernen
             </Button>
-            <ul>
-        {hits.map(hit =>
-          <li key={hit._id}>
             
-          </li>
-        )}
-      </ul>
           </div>
           <Outlet />
         </div>
