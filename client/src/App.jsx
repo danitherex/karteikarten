@@ -60,7 +60,7 @@ class App extends React.Component {
             <ul>
         {hits.map(hit =>
           <li key={hit.objectID}>
-            <a href={hit.url}>{hit.title}</a>
+            
           </li>
         )}
       </ul>
