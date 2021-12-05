@@ -50,8 +50,14 @@ class App extends React.Component {
       var rueckvalue = rueck.value;
       vorder.value = "";
       rueck.value = "";
-      console.log(vordervalue);
-      console.log(rueckvalue);
+      const inhalt ={"vorderseite":vordervalue,"ruekseite":rueckvalue}
+      axios.post('/api/items', inhalt)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
 
     return (
