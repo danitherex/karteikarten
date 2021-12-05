@@ -53,7 +53,7 @@ class Lernen extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-    naechstekarte()
+    this.naechstekarte()
   }
   render() {
 
