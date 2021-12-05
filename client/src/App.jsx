@@ -28,6 +28,7 @@ class App extends React.Component {
     fetch(API)
     .then(response => response.json())
     .then(data => this.setState({ hits: data.hits, isLoading: false }))
+    .then(consoe.log(data.hits))
       .catch(error => this.setState({
         error,
         isLoading: false
