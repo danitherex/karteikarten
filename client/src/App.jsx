@@ -54,8 +54,8 @@ class App extends React.Component {
             <title>{TITLE}</title>
           </Helmet>
           <InputGroup>
-            <InputGroup.Text>Vorderseite Karteikarte ${hits}</InputGroup.Text>
-            <FormControl as="textarea" aria-label="vorderseite" />#
+            <InputGroup.Text>Vorderseite Karteikarte {hits}</InputGroup.Text>
+            <FormControl as="textarea" aria-label="vorderseite" />
           </InputGroup>
           <InputGroup>
             <InputGroup.Text>Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
