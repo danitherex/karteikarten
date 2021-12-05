@@ -50,7 +50,7 @@ class App extends React.Component {
       var rueckvalue = rueck.value;
       vorder.value = "";
       rueck.value = "";
-      const inhalt ={"vorderseite":vordervalue,"ruekseite":rueckvalue}
+      const inhalt = { "vorderseite": vordervalue, "ruekseite": rueckvalue }
       axios.post('/api/items', inhalt)
         .then(function (response) {
           console.log(response);
@@ -86,12 +86,6 @@ class App extends React.Component {
 
           </div>
 
-          <ul>
-            <li>{this.vorderseite}</li>
-            <li>{this.rueckseite}</li>
-          </ul>
-
-          {this.karten.map(karte => { <ul><li>{karte.vorderseite}</li><li>{karte.rueckseite}</li></ul> })}
 
           <Outlet />
         </div>
