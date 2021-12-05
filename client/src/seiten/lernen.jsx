@@ -25,6 +25,7 @@ class Lernen extends React.Component {
         this.setState({ karten });
         this.vorderseite = karten[this.count_karten].vorderseite;
         this.rueckseite = karten[this.count_karten].ruekseite;
+        console.log(this.vorderseite);
         this.count_karten++;
         if(this.count_karten>karten.length-1){
           this.count_karten=0;
