@@ -30,7 +30,6 @@ class App extends React.Component {
     fetch(API)
       .then(response => response.json())
       .then(data => this.setState({ hits: data.hits }))
-      .then(console.log(data));
   }
   render() {
     const { hits } = this.state;
