@@ -13,9 +13,11 @@ render(
   <BrowserRouter>
   <Routes>
     <Route path="/" element={<App />}>
-      <Route path ="lernen" element={<Lernen />}/>
-
+      
     </Route>
+      <Route path ="lernen" element={<Lernen />}>
+        </Route>
+
   </Routes>
   </BrowserRouter>,
 
