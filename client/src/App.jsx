@@ -42,7 +42,16 @@ class App extends React.Component {
     function lernen() {
       window.location.replace("/lernen");
     }
-    
+
+    function postkarte() {
+      var vorder = document.getElementById("vs");
+      var rueck = document.getElementById("rs");
+      var vordervalue = vorder.value;
+      var rueckvalue = rueckseite.value;
+      vorder.value="";
+      rueck.value="";
+    }
+
     return (
       <>
 
@@ -51,17 +60,17 @@ class App extends React.Component {
             <title>{TITLE}</title>
           </Helmet>
           <InputGroup>
-            <InputGroup.Text>Vorderseite Karteikarte </InputGroup.Text>
+            <InputGroup.Text id = "vs">Vorderseite Karteikarte </InputGroup.Text>
             <FormControl as="textarea" aria-label="vorderseite" />
           </InputGroup>
           <InputGroup>
-            <InputGroup.Text>Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
+            <InputGroup.Text id = "rs">Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
             <FormControl as="textarea" aria-label="rueckseite" />
           </InputGroup>
           <div className="mb-2">
-            <Button variant="primary" size="lg">
+            <Button variant="primary" size="lg" onClick={postkarte}>
               Nächste Karte
-            </Button>{' '}
+            </Button>
             <Button variant="secondary" size="lg" onClick={lernen}>
               Lernen
             </Button>
@@ -74,7 +83,7 @@ class App extends React.Component {
             <li>{this.rueckseite}</li>
           </ul>
 
-          {this.state.karten.map(karte => {<ul><li>{karte.vorderseite}</li><li>{karte.rueckseite}</li></ul>})}
+          {this.state.karten.map(karte => { <ul><li>{karte.vorderseite}</li><li>{karte.rueckseite}</li></ul> })}
 
           <Outlet />
         </div>
