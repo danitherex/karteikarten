@@ -15,18 +15,17 @@ class Lernen extends React.Component {
     this.vorderseite=null;
     this.rueckseite=null;
     this.count_karten = 0;
+    this.karten=[];
   }
 
-  state = {
-    karten: []
-  }
+  
   componentDidMount() {
     axios.get(API)
       .then(res => {
         const karten = res.data;
-        this.setState({ karten });
+        this.karten=karten;
         console.log(this.count_karten);
-        console.log(this.state.karten[this.count_karten]);
+        console.log(this.karten[this.count_karten]);
         this.count_karten++;
         if (this.count_karten > karten.length - 1) {
           this.count_karten = 0;
@@ -36,10 +35,10 @@ class Lernen extends React.Component {
   render() {
 
     function naechstekarte() {
-      document.getElementById("voderseiteid").innerHTML = this.state.karten[this.count_karten].vorderseite;
-      document.getElementById("rueckseiteid").innerHTML = this.state.karten[this.count_karten].ruekseite;
+      document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
+      document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
       this.count_karten++;
-      if (this.count_karten > this.state.karten.length - 1) {
+      if (this.count_karten > this.karten.length - 1) {
         this.count_karten = 0;
       }
     }
@@ -60,7 +59,7 @@ class Lernen extends React.Component {
             />
             <Carousel.Caption>
               <h2 id="voderseiteid"></h2>
-              {/* <h2 id="voderseiteid">{this.state.karten[this.count_karten].vorderseite}</h2> */}
+              {/* <h2 id="voderseiteid">{this.karten[this.count_karten].vorderseite}</h2> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item >
@@ -73,7 +72,7 @@ class Lernen extends React.Component {
 
             <Carousel.Caption>
               <h2 id="rueckseiteid"></h2>
-              {/* <h2 id="rueckseiteid">{this.state.karten[this.count_karten].ruekseite}</h2> */}
+              {/* <h2 id="rueckseiteid">{this.karten[this.count_karten].ruekseite}</h2> */}
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
