@@ -42,6 +42,7 @@ class App extends React.Component {
       this.state.karten.map(karte => {
         this.vorderseite = karte.vorderseite;
         this.rueckseite = karte.ruekseite;
+        return <ul><li>this.vorderseite</li><li>this.rueckseite</li></ul>
       })
     }
     return (
@@ -70,10 +71,10 @@ class App extends React.Component {
 
           </div>
 
-          <ul>
-            <li>{this.vorderseite}</li>
-            <li>{this.rueckseite}</li>
-          </ul>
+
+
+          {myFunction()}
+
           <Outlet />
         </div>
 
