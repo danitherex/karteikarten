@@ -9,37 +9,42 @@ const TITLE = 'Karteikarten';
 const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 class Lernen extends React.Component {
-  
+
   constructor(props) {
     super(props);
-    this.vorderseite=null;
-    this.rueckseite=null;
+    this.vorderseite = null;
+    this.rueckseite = null;
     this.count_karten = 0;
-    this.karten=[];
+    this.karten = [];
+    this.loaded = false;
   }
 
-  
+
   componentDidMount() {
     axios.get(API)
       .then(res => {
         const karten = res.data;
-        this.karten=karten;
+        this.karten = karten;
         console.log(this.count_karten);
         console.log(this.karten[this.count_karten]);
         this.count_karten++;
-        if (this.count_karten > karten.length - 1) {
+        if (this.count_karten > this.karten.length - 1) {
           this.count_karten = 0;
         }
+
+        this.loaded = true;
       });
   }
   render() {
 
     function naechstekarte() {
-      document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
-      document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
-      this.count_karten++;
-      if (this.count_karten > this.karten.length - 1) {
-        this.count_karten = 0;
+      if (this.loaded == true) {
+        document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
+        document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
+        this.count_karten++;
+        if (this.count_karten > this.karten.length - 1) {
+          this.count_karten = 0;
+        }
       }
     }
 
