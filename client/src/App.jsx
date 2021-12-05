@@ -29,7 +29,8 @@ class App extends React.Component {
   componentDidMount() {
     fetch(API)
       .then(response => response.json())
-      .then(data => this.setState({ data }));
+      .then(data => this.setState({ data }))
+      .then(console.log(data));
   }
   render() {
     const { hits } = this.state;
@@ -57,13 +58,7 @@ class App extends React.Component {
             <Button variant="secondary" size="lg" onClick={lernen}>
               Lernen
             </Button>
-            <ul>
-            {hits.map(hit =>
-            <li key={hit.objectID}>
-              <a href={hit.url}>{hit.title}</a>
-            </li>
-        )}
-      </ul>
+            
           </div>
           <Outlet />
         </div>
