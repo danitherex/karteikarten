@@ -73,7 +73,7 @@ class App extends React.Component {
 
 
 
-          {myFunction()}
+          {returnkarte()}
 
           <Outlet />
         </div>
