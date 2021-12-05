@@ -47,10 +47,11 @@ class App extends React.Component {
       var vorder = document.getElementById("vs");
       var rueck = document.getElementById("rs");
       var vordervalue = vorder.value;
-      var rueckvalue = rueck.value;
-      vorder.innerHTML="";
-      rueck.innerHTML="";
-      console.log("Cleared");
+      var rueckvalue = rueck.innerHTML;
+      vorder.innerHTML = "";
+      rueck.innerHTML = "";
+      console.log(vordervalue);
+      console.log(rueckvalue);
     }
 
     return (
@@ -61,12 +62,12 @@ class App extends React.Component {
             <title>{TITLE}</title>
           </Helmet>
           <InputGroup>
-            <InputGroup.Text id = "vs">Vorderseite Karteikarte </InputGroup.Text>
-            <FormControl as="textarea" aria-label="vorderseite" />
+            <InputGroup.Text >Vorderseite Karteikarte </InputGroup.Text>
+            <FormControl as="textarea" aria-label="vorderseite" id="vs" />
           </InputGroup>
           <InputGroup>
-            <InputGroup.Text id = "rs">Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
-            <FormControl as="textarea" aria-label="rueckseite" />
+            <InputGroup.Text >Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
+            <FormControl as="textarea" aria-label="rueckseite" id="rs" />
           </InputGroup>
           <div className="mb-2">
             <Button variant="primary" size="lg" onClick={postkarte}>
