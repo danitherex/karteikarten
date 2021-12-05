@@ -71,7 +71,7 @@ class Lernen extends React.Component {
         <Helmet>
           <title>{TITLE}</title>
         </Helmet>
-        <Carousel interval={null} activeIndex={index}>
+        <Carousel interval={null} activeIndex={this.state.index}>
           <Carousel.Item >
             <img
               width={720} height={380}
