@@ -31,9 +31,9 @@ class Lernen extends React.Component {
         }
       });
   }
-  naechstekarte() {
-    document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
-    document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
+  naechstekarte(e) {
+    document.getElementById("voderseiteid").innerHTML = e.karten[this.count_karten].vorderseite;
+    document.getElementById("rueckseiteid").innerHTML = e.karten[this.count_karten].ruekseite;
     this.count_karten++;
     if (this.count_karten > this.karten.length - 1) {
       this.count_karten = 0;
@@ -77,7 +77,7 @@ class Lernen extends React.Component {
           </Carousel.Item>
         </Carousel>
         <div className="mb-2">
-          <Button variant="primary" size="lg" onClick={this.naechstekarte}>
+          <Button variant="primary" size="lg" onClick={e => this.naechstekarte(e)}>
             Nächste Karte Zeigen
           </Button>
         </div>
