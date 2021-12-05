@@ -22,14 +22,14 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      data: null,
+      hits: [],
     };
   }
 
   componentDidMount() {
     fetch(API)
       .then(response => response.json())
-      .then(data => this.setState({ data }))
+      .then(data => this.setState({ hits: data.hits }))
       .then(console.log(data));
   }
   render() {
@@ -58,7 +58,13 @@ class App extends React.Component {
             <Button variant="secondary" size="lg" onClick={lernen}>
               Lernen
             </Button>
-            
+            <ul>
+        {hits.map(hit =>
+          <li key={hit.objectID}>
+            <a href={hit.url}>{hit.title}</a>
+          </li>
+        )}
+      </ul>
           </div>
           <Outlet />
         </div>
