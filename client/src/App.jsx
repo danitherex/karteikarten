@@ -36,7 +36,15 @@ class App extends React.Component {
       }));
   }
   render() {
-    const { hits } = this.state;
+    const { hits, isLoading, error } = this.state;
+
+    if (error) {
+      return <p>{error.message}</p>;
+    }
+
+    if (isLoading) {
+      return <p>Loading ...</p>;
+    }
     function lernen() {
       window.location.replace("/lernen");
     }
