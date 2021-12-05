@@ -73,9 +73,8 @@ class App extends React.Component {
             <li>{this.vorderseite}</li>
             <li>{this.rueckseite}</li>
           </ul>
-{/* 
-          {this.state.karten.map(karte => {
-             <ul><li>{karte.vorderseite}</li><li>{karte.rueckseite}</li></ul>}}} */}
+
+          {this.state.karten.map(karte => {<ul><li>{karte.vorderseite}</li><li>{karte.rueckseite}</li></ul>})}
 
           <Outlet />
         </div>
