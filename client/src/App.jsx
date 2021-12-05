@@ -49,12 +49,13 @@ class App extends React.Component {
     }
     return (
       <>
+      <h1>{hits.map()}</h1>
         <div>
           <Helmet>
             <title>{TITLE}</title>
           </Helmet>
           <InputGroup>
-            <InputGroup.Text>Vorderseite Karteikarte {hits}</InputGroup.Text>
+            <InputGroup.Text>Vorderseite Karteikarte </InputGroup.Text>
             <FormControl as="textarea" aria-label="vorderseite" />
           </InputGroup>
           <InputGroup>
