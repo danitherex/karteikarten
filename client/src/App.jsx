@@ -43,7 +43,8 @@ class App extends React.Component {
 
     if (isLoading) {
       return <p>Loading ...</p>;
-    }else{
+    }
+    if(!hits==undefined){
       return (
       <>
       
@@ -75,9 +76,11 @@ class App extends React.Component {
       </>
     );
     }
+      
+    }
     
   }
-}
+
 
 
 
