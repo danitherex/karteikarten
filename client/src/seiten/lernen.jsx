@@ -17,9 +17,6 @@ class Lernen extends React.Component {
     this.count_karten = 0;
     this.naechstekarte = this.naechstekarte.bind(this);
     this.karteloeschen = this.karteloeschen.bind(this);
-    this.state = {
-      index: 0
-    }
   }
 
 
@@ -41,18 +38,10 @@ class Lernen extends React.Component {
   naechstekarte() {
     document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
     document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
-    let index = 0;
-    this.setState({
-      index
-    })
     this.count_karten++;
     if (this.count_karten > this.karten.length - 1) {
       this.count_karten = 0;
     }
-    index = null;
-    this.setState({
-      index
-    })
 
   }
 
@@ -76,7 +65,7 @@ class Lernen extends React.Component {
         <Helmet>
           <title>{TITLE}</title>
         </Helmet>
-        <Carousel interval={null} activeIndex={this.state.index}>
+        <Carousel interval={null} >
           <Carousel.Item >
             <img
               width={720} height={380}
