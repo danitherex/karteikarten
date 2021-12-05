@@ -23,16 +23,16 @@ class Lernen extends React.Component {
       .then(res => {
         const karten = res.data;
         this.setState({ karten });
-        this.vorderseite = karten[count_karten].vorderseite;
-        this.rueckseite = karten[count_karten].ruekseite;
+        this.vorderseite = karten[this.count_karten].vorderseite;
+        this.rueckseite = karten[this.count_karten].ruekseite;
         count_karten++;
       });
   }
   render() {
 
     function naechstekarte() {
-      this.vorderseite = karten[count_karten].vorderseite;
-      this.rueckseite = karten[count_karten].ruekseite;
+      this.vorderseite = this.karten[this.count_karten].vorderseite;
+      this.rueckseite = this.karten[this.count_karten].ruekseite;
       count_karten++;
       document.getElementById("voderseiteid").innerHTML=this.vorderseite;
       document.getElementById("rueckseiteid").innerHTML=this.rueckseite;
