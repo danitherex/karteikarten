@@ -45,6 +45,16 @@ class Lernen extends React.Component {
 
   }
 
+  karteloeschen() {
+    axios.delete("/api/items/" + this.karten._id)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    naechstekarte()
+  }
   render() {
 
     return (
@@ -53,7 +63,7 @@ class Lernen extends React.Component {
         <Helmet>
           <title>{TITLE}</title>
         </Helmet>
-        <Carousel interval={null}>
+        <Carousel interval={null} activeIndex="1">
           <Carousel.Item >
             <img
               width={720} height={380}
@@ -81,6 +91,12 @@ class Lernen extends React.Component {
         <div className="mb-2">
           <Button variant="primary" size="lg" onClick={this.naechstekarte}>
             Nächste Karte Zeigen
+          </Button>
+          <Button variant="primary" size="lg" onClick={this.karteloeschen}>
+            aktuelle Karte löschen
+          </Button>
+          <Button variant="primary" size="lg" onClick={window.location.href("/")}>
+            Neue Karten Hinzufügen
           </Button>
         </div>
       </>
