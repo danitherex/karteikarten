@@ -50,7 +50,7 @@ async function main() {
         }).toArray(function (err, results) {
           if (err) throw err;
           console.log(results);
-          res.json({ message: "Hello from server!" });
+          res.json(results);
         });
 
       } catch (err) {

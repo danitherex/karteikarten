@@ -25,7 +25,7 @@ function App() {
   React.useEffect(() => {
     fetch("/api/items/61aa31ca8e99f13d88759be7")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => setData(data));
   }, []);
 
   // componentDidMount() {
