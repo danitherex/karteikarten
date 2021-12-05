@@ -16,6 +16,7 @@ class Lernen extends React.Component {
     this.rueckseite = null;
     this.count_karten = 0;
     this.naechstekarte = this.naechstekarte.bind(this);
+    this.karteloeschen = this.karteloeschen.bind(this);
     this.state = {
       index: 0
     }
