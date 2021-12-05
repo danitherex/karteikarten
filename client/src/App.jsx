@@ -23,7 +23,7 @@ function App() {
   // }
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
-    fetch("/api/items")
+    fetch("API")
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
@@ -81,7 +81,9 @@ function App() {
             Lernen
           </Button>
 
+
         </div>
+
         <p>{!data ? "Loading..." : data}</p>
         <Outlet />
       </div>
