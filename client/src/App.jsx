@@ -26,7 +26,7 @@ class App extends React.Component {
       .then(res => {
         const karten = res.data;
         this.setState({ karten });
-        this.karten.map(karte => {
+        karten.map(karte => {
           this.vorderseite = karte.vorderseite;
           this.rueckseite = karte.ruekseite;
         })
@@ -91,7 +91,7 @@ class App extends React.Component {
             <li>{this.rueckseite}</li>
           </ul>
 
-          {this.karten.map(karte => { <ul><li>{karte.vorderseite}</li><li>{karte.rueckseite}</li></ul> })}
+          {karten.map(karte => { <ul><li>{karte.vorderseite}</li><li>{karte.rueckseite}</li></ul> })}
 
           <Outlet />
         </div>
