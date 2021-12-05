@@ -59,7 +59,7 @@ class Lernen extends React.Component {
             />
             <Carousel.Caption>
               <h2 id="voderseiteid"></h2>
-              <h2 id="voderseiteid">{this.karten[this.count_karten].vorderseite}</h2>
+              {/* <h2 id="voderseiteid">{this.karten[this.count_karten].vorderseite}</h2> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item >
@@ -72,7 +72,7 @@ class Lernen extends React.Component {
 
             <Carousel.Caption>
               <h2 id="rueckseiteid"></h2>
-              <h2 id="rueckseiteid">{this.karten[this.count_karten].ruekseite}</h2>
+              {/* <h2 id="rueckseiteid">{this.karten[this.count_karten].ruekseite}</h2> */}
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
