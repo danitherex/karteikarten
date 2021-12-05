@@ -23,7 +23,7 @@ function App() {
   // }
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
-    fetch("/api/items/61aa31ca8e99f13d88759be7")
+    fetch("/api/items")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
