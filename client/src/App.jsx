@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get(API)
       .then(res => {
-        const persons = res.data;
+        const karten = res.data;
         this.setState({ karten });
       });
   }
