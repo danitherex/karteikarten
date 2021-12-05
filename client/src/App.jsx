@@ -10,26 +10,30 @@ const TITLE = 'Karteikarten';
 const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 
-const getFetch = () => {
-  axios.get(API).then((response) => {
-    const data = response.data;
-    console.log(data);
-  }).catch(error => console.error(`Error: ${error}`));
-}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      hits: [],
+      hits: [], 
+      isLoading: false,
+      error: null,
     };
   }
 
   componentDidMount() {
-    fetch(API)
-      .then(response => response.json())
-      .then(data => this.setState({ hits: data.hits }))
+    this.setState({ isLoading: true });
+
+    axios.get(API + DEFAULT_QUERY)
+      .then(result => this.setState({
+        hits: result.data.hits,
+        isLoading: false
+      }))
+      .catch(error => this.setState({
+        error,
+        isLoading: false
+      }));
   }
   render() {
     const { hits } = this.state;
