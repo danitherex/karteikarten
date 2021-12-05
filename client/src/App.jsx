@@ -26,7 +26,7 @@ function App() {
     fetch(API)
       .then((res) => res.json())
       .then((data) => setData(data.message));
-  }, []);
+ }, []);
 
   // componentDidMount() {
   //   this.setState({ isLoading: true });
