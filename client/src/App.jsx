@@ -26,6 +26,10 @@ class App extends React.Component {
       .then(res => {
         const karten = res.data;
         this.setState({ karten });
+        this.state.karten.map(karte => {
+          this.vorderseite = karte.vorderseite;
+          this.rueckseite = karte.ruekseite;
+        })
       });
   }
 
@@ -38,13 +42,7 @@ class App extends React.Component {
     function lernen() {
       window.location.replace("/lernen");
     }
-    function returnkarte() {
-      this.state.karten.map(karte => {
-        this.vorderseite = karte.vorderseite;
-        this.rueckseite = karte.ruekseite;
-        return <ul><li>this.vorderseite</li><li>this.rueckseite</li></ul>
-      })
-    }
+    
     return (
       <>
 
@@ -71,9 +69,13 @@ class App extends React.Component {
 
           </div>
 
-
-
-          {returnkarte()}
+          <ul>
+            <li>{this.vorderseite}</li>
+            <li>{this.rueckseite}</li>
+          </ul>
+{/* 
+          {this.state.karten.map(karte => {
+             <ul><li>{karte.vorderseite}</li><li>{karte.rueckseite}</li></ul>}}} */}
 
           <Outlet />
         </div>
