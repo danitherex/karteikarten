@@ -1,4 +1,3 @@
-import image from "./back.jpg"
 import React from 'react';
 import {Outlet } from "react-router-dom";
 import { Helmet } from 'react-helmet';

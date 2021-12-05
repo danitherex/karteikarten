@@ -1,6 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Helmet } from 'react-helmet';
+import React from 'react';
+import image from "./back.jpg"
 import { Button, Carousel } from 'react-bootstrap';
+
+
+const TITLE = 'Karteikarten';
 
 class Lernen extends React.Component {
 
