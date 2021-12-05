@@ -36,7 +36,7 @@ class Lernen extends React.Component {
       document.getElementById("voderseiteid").innerHTML = this.state.karten[this.count_karten].vorderseite;
       document.getElementById("rueckseiteid").innerHTML = this.state.karten[this.count_karten].ruekseite;
       this.count_karten++;
-      if (this.count_karten > karten.length - 1) {
+      if (this.count_karten > this.state.karten.length - 1) {
         this.count_karten = 0;
       }
     }
