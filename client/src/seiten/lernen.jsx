@@ -95,7 +95,7 @@ class Lernen extends React.Component {
           <Button variant="primary" size="lg" onClick={this.karteloeschen}>
             aktuelle Karte löschen
           </Button>
-          <Button variant="primary" size="lg" onClick={window.location.href("/")}>
+          <Button variant="primary" size="lg" onClick={window.location.href("https://lernenmitkarteikarten.herokuapp.com")}>
             Neue Karten Hinzufügen
           </Button>
         </div>
