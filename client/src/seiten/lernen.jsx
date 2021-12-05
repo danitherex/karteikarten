@@ -56,7 +56,9 @@ class Lernen extends React.Component {
     this.naechstekarte()
   }
   render() {
-
+    function home() {
+      window.location.href = "https://lernenmitkarteikarten.herokuapp.com/";
+    }
     return (
       <>
 
@@ -95,7 +97,7 @@ class Lernen extends React.Component {
           <Button variant="primary" size="lg" onClick={this.karteloeschen}>
             aktuelle Karte löschen
           </Button>
-          <Button variant="primary" size="lg" onClick={window.location.href ="https://lernenmitkarteikarten.herokuapp.com"}>
+          <Button variant="primary" size="lg" onClick={home}>
             Neue Karten Hinzufügen
           </Button>
         </div>
