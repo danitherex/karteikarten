@@ -16,7 +16,7 @@ const getFetch = () => {
     console.log(data);
   }).catch(error => console.error(`Error: ${error}`));
 }
-Content
+
 class App extends React.Component {
   constructor(props) {
     super(props);
