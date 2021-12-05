@@ -49,11 +49,15 @@ class Lernen extends React.Component {
     if (this.count_karten > this.karten.length - 1) {
       this.count_karten = 0;
     }
+    index = null;
+    this.setState({
+      index
+    })
 
   }
 
   karteloeschen() {
-    axios.delete("/api/items/" + this.karten._id)
+    axios.delete("/api/items/" + this.karten[this.count_karten]._id)
       .then(function (response) {
         console.log(response);
       })
