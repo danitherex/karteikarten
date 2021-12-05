@@ -42,6 +42,11 @@ class Lernen extends React.Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+        <div className="mb-2">
+            <Button variant="primary" size="lg">
+              Nächste Karte Zeigen
+            </Button>{' '}
+          </div>
       </>
     );
   }
