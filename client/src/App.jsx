@@ -43,42 +43,42 @@ class App extends React.Component {
         this.vorderseite = karte.vorderseite;
         this.rueckseite = karte.ruekseite;
       })
-      return (
-        <>
+    }
+    return (
+      <>
 
-          <div>
-            <Helmet>
-              <title>{TITLE}</title>
-            </Helmet>
-            <InputGroup>
-              <InputGroup.Text>Vorderseite Karteikarte </InputGroup.Text>
-              <FormControl as="textarea" aria-label="vorderseite" />
-            </InputGroup>
-            <InputGroup>
-              <InputGroup.Text>Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
-              <FormControl as="textarea" aria-label="rueckseite" />
-            </InputGroup>
-            <div className="mb-2">
-              <Button variant="primary" size="lg">
-                Nächste Karte
-              </Button>{' '}
-              <Button variant="secondary" size="lg" onClick={lernen}>
-                Lernen
-              </Button>
+        <div>
+          <Helmet>
+            <title>{TITLE}</title>
+          </Helmet>
+          <InputGroup>
+            <InputGroup.Text>Vorderseite Karteikarte </InputGroup.Text>
+            <FormControl as="textarea" aria-label="vorderseite" />
+          </InputGroup>
+          <InputGroup>
+            <InputGroup.Text>Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
+            <FormControl as="textarea" aria-label="rueckseite" />
+          </InputGroup>
+          <div className="mb-2">
+            <Button variant="primary" size="lg">
+              Nächste Karte
+            </Button>{' '}
+            <Button variant="secondary" size="lg" onClick={lernen}>
+              Lernen
+            </Button>
 
 
-            </div>
-
-            <ul>
-              <li>{this.vorderseite}</li>
-              <li>{this.rueckseite}</li>
-            </ul>
-            <Outlet />
           </div>
 
-        </>
-      );
-    }
+          <ul>
+            <li>{this.vorderseite}</li>
+            <li>{this.rueckseite}</li>
+          </ul>
+          <Outlet />
+        </div>
+
+      </>
+    );
   }
 }
 
