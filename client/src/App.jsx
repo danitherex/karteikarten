@@ -48,7 +48,13 @@ class App extends React.Component {
       return (
       <>
       
-      <h1>{hits.map()}</h1>
+      <ul>
+        {hits.map(hit =>
+          <li key={hit._id}>
+            {hit.inhaber}
+          </li>
+        )}
+      </ul>
         <div>
           <Helmet>
             <title>{TITLE}</title>
