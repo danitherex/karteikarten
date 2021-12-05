@@ -60,7 +60,7 @@ class App extends React.Component {
           </div>
 
           <ul>
-            {this.state.karten.map(karte => <li>{karte.name}</li>)}
+            {this.state.karten.map(karte => <li>{karte.inhaber}</li>)}
           </ul>
           <Outlet />
         </div>
