@@ -11,89 +11,65 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 
 
-function App() {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     hits: [],
-  //     isLoading: false,
-  //     error: null,
-  //   };
-  // }
-  const [data, setData] = React.useState(null);
-  React.useEffect(() => {
-    fetch("/api/items")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
-  // componentDidMount() {
-  //   this.setState({ isLoading: true });
-
-  //   fetch(API)
-  //     .then(response => response.json())
-  //     .then(data => this.setState({ hits: data.hits, isLoading: false }))
-  //     .then(console.log(this.state.hits))
-  //     .catch(error => this.setState({
-  //       error,
-  //       isLoading: false
-  //     }));
-  // }
-  // const { hits, isLoading, error } = this.state;
-  // if (error) {
-  //   return <p>{error.message}</p>;}
-  function lernen() {
-    window.location.replace("/lernen");
+class App extends React.Component {
+  state = {
+    persons: []
   }
 
-  // if (isLoading) {
-  //   return <p>Loading ...</p>;
-  // }
-  // if(hits!==undefined){
-  return (
-    <>
-      {/* {
-      <ul>
-        {hits.map(hit =>
-          <li key={hit._id}>
-            {hit.inhaber}
-          </li>
-        )}
-      </ul> } */}
-      <div>
-        <Helmet>
-          <title>{TITLE}</title>
-        </Helmet>
-        <InputGroup>
-          <InputGroup.Text>Vorderseite Karteikarte </InputGroup.Text>
-          <FormControl as="textarea" aria-label="vorderseite" />
-        </InputGroup>
-        <InputGroup>
-          <InputGroup.Text>Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
-          <FormControl as="textarea" aria-label="rueckseite" />
-        </InputGroup>
-        <div className="mb-2">
-          <Button variant="primary" size="lg">
-            Nächste Karte
-          </Button>{' '}
-          <Button variant="secondary" size="lg" onClick={lernen}>
-            Lernen
-          </Button>
+  componentDidMount() {
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      });
+  }
 
 
+
+
+
+
+  render() {
+    function lernen() {
+      window.location.replace("/lernen");
+    }
+    return (
+      <>
+
+        <div>
+          <Helmet>
+            <title>{TITLE}</title>
+          </Helmet>
+          <InputGroup>
+            <InputGroup.Text>Vorderseite Karteikarte </InputGroup.Text>
+            <FormControl as="textarea" aria-label="vorderseite" />
+          </InputGroup>
+          <InputGroup>
+            <InputGroup.Text>Rückseite Karteikarte &zwnj;  &zwnj; &zwnj;  </InputGroup.Text>
+            <FormControl as="textarea" aria-label="rueckseite" />
+          </InputGroup>
+          <div className="mb-2">
+            <Button variant="primary" size="lg">
+              Nächste Karte
+            </Button>{' '}
+            <Button variant="secondary" size="lg" onClick={lernen}>
+              Lernen
+            </Button>
+
+
+          </div>
+
+          <ul>
+            {this.state.persons.map(person => <li>{person.name}</li>)}
+          </ul>
+          <Outlet />
         </div>
 
-        <p>{!data ? "Loading..." : data}</p>
-        <Outlet />
-      </div>
-
-    </>
-  );
-  // }else{
-  // return (<p>Loading ...</p>);}
-
+      </>
+    );
+  }
 }
+
 
 
 
