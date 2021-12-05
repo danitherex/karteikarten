@@ -9,10 +9,11 @@ const TITLE = 'Karteikarten';
 const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 
 class Lernen extends React.Component {
+  
   constructor(props) {
     super(props);
-    this.vorderseite;
-    this.rueckseite;
+    this.vorderseite=null;
+    this.rueckseite=null;
     this.count_karten = 0;
   }
 
