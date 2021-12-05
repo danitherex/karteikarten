@@ -25,7 +25,7 @@ class App extends React.Component {
   componentDidMount() {
     this.setState({ isLoading: true });
 
-    axios.get(API + DEFAULT_QUERY)
+    axios.get(API)
       .then(result => this.setState({
         hits: result.data.hits,
         isLoading: false
