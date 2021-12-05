@@ -18,11 +18,6 @@ async function main() {
 
   app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-  app.get("/api", (req, res) => {
-    res.json({
-      message: "Hallo Jarred"
-    });
-  });
 
   let client;
   try {
@@ -80,21 +75,27 @@ async function main() {
     app.put("/api/items/:itemId", (req, res) => {
 
       try {
-          const id = req.params.itemId;
-          console.log(`Received PUT for item ${id}`);
-          var ObjectId = require('mongodb').ObjectId;
-          var o_id = new ObjectId(id);
-          const data = req.body;
-          collection.updateOne({ _id: o_id }, { $set: data });
+        const id = req.params.itemId;
+        console.log(`Received PUT for item ${id}`);
+        var ObjectId = require('mongodb').ObjectId;
+        var o_id = new ObjectId(id);
+        const data = req.body;
+        collection.updateOne({
+          _id: o_id
+        }, {
+          $set: data
+        });
 
-          const result = collection.find({ _id: o_id }).toArray();
-          console.log(result);
-          res.status(204).end();
+        const result = collection.find({
+          _id: o_id
+        }).toArray();
+        console.log(result);
+        res.status(204).end();
       } catch (err) {
-          console.error(err);
-          res.status(500).send(err);
+        console.error(err);
+        res.status(500).send(err);
       }
-  });
+    });
 
     app.delete("/api/items/:itemId", async (req, res) => {
       try {
