@@ -47,9 +47,9 @@ class App extends React.Component {
       var vorder = document.getElementById("vs");
       var rueck = document.getElementById("rs");
       var vordervalue = vorder.value;
-      var rueckvalue = rueck.innerHTML;
-      vorder.innerHTML = "";
-      rueck.innerHTML = "";
+      var rueckvalue = rueck.value;
+      vorder.value = "";
+      rueck.value = "";
       console.log(vordervalue);
       console.log(rueckvalue);
     }
