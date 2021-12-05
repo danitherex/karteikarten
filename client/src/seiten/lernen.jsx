@@ -33,10 +33,12 @@ class Lernen extends React.Component {
   render() {
 
     function naechstekarte() {
-      this.count_karten++;
       document.getElementById("voderseiteid").innerHTML = this.state.karten[this.count_karten].vorderseite;
       document.getElementById("rueckseiteid").innerHTML = this.state.karten[this.count_karten].ruekseite;
-
+      this.count_karten++;
+      if (this.count_karten > karten.length - 1) {
+        this.count_karten = 0;
+      }
     }
 
     return (
@@ -55,7 +57,7 @@ class Lernen extends React.Component {
             />
             <Carousel.Caption>
               <h2 id="voderseiteid"></h2>
-              {/* <h2 id="voderseiteid">{this.state.karten[0].vorderseite}</h2> */}
+              {/* <h2 id="voderseiteid">{this.state.karten[this.count_karten].vorderseite}</h2> */}
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item >
@@ -68,7 +70,7 @@ class Lernen extends React.Component {
 
             <Carousel.Caption>
               <h2 id="rueckseiteid"></h2>
-              {/* <h2 id="rueckseiteid">{this.state.karten[0].ruekseite}</h2> */}
+              {/* <h2 id="rueckseiteid">{this.state.karten[this.count_karten].ruekseite}</h2> */}
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
