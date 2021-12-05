@@ -25,7 +25,10 @@ class Lernen extends React.Component {
         this.setState({ karten });
         this.vorderseite = karten[this.count_karten].vorderseite;
         this.rueckseite = karten[this.count_karten].ruekseite;
-        count_karten++;
+        this.count_karten++;
+        if(this.count_karten>karten.length-1){
+          this.count_karten=0;
+        }
       });
   }
   render() {
@@ -33,7 +36,7 @@ class Lernen extends React.Component {
     function naechstekarte() {
       this.vorderseite = this.karten[this.count_karten].vorderseite;
       this.rueckseite = this.karten[this.count_karten].ruekseite;
-      count_karten++;
+      this.count_karten++;
       document.getElementById("voderseiteid").innerHTML=this.vorderseite;
       document.getElementById("rueckseiteid").innerHTML=this.rueckseite;
 
