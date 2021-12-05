@@ -7,11 +7,11 @@ import axios from 'axios';
 
 const TITLE = 'Karteikarten';
 const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
-var karten=[];
 
 class Lernen extends React.Component {
   constructor(props) {
     super(props);
+    this.karten = [];
     this.vorderseite = null;
     this.rueckseite = null;
     this.count_karten = 0;
@@ -22,26 +22,27 @@ class Lernen extends React.Component {
     axios.get(API)
       .then(res => {
         const karteng = res.data;
-        karten = karteng;
+        this.karten = karteng;
         console.log(this.count_karten);
-        console.log(karten[this.count_karten]);
+        console.log(this.karten[this.count_karten]);
         this.count_karten++;
-        if (this.count_karten > karten.length - 1) {
+        if (this.count_karten > this.karten.length - 1) {
           this.count_karten = 0;
         }
       });
   }
-  render() {
-    function naechstekarte() {
-      document.getElementById("voderseiteid").innerHTML = karten[this.count_karten].vorderseite;
-      document.getElementById("rueckseiteid").innerHTML = karten[this.count_karten].ruekseite;
-      this.count_karten++;
-      if (this.count_karten > karten.length - 1) {
-        this.count_karten = 0;
-      }
-
+  naechstekarte() {
+    document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
+    document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
+    this.count_karten++;
+    if (this.count_karten > this.karten.length - 1) {
+      this.count_karten = 0;
     }
 
+  }
+
+  render() {
+    
     return (
       <>
 
@@ -58,7 +59,7 @@ class Lernen extends React.Component {
             />
             <Carousel.Caption>
               <h2 id="voderseiteid"></h2>
-              <h2 id="voderseiteid">{karten[this.count_karten].vorderseite}</h2>
+              <h2 id="voderseiteid">{this.karten[this.count_karten].vorderseite}</h2>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item >
@@ -71,12 +72,12 @@ class Lernen extends React.Component {
 
             <Carousel.Caption>
               <h2 id="rueckseiteid"></h2>
-              <h2 id="rueckseiteid">{karten[this.count_karten].ruekseite}</h2>
+              <h2 id="rueckseiteid">{this.karten[this.count_karten].ruekseite}</h2>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
         <div className="mb-2">
-          <Button variant="primary" size="lg" onClick={naechstekarte}>
+          <Button variant="primary" size="lg" onClick={this.naechstekarte}>
             Nächste Karte Zeigen
           </Button>
         </div>
