@@ -25,7 +25,7 @@ class App extends React.Component {
   componentDidMount() {
     this.setState({ isLoading: true });
 
-    fetch(API + DEFAULT_QUERY)
+    fetch(API)
     .then(response => response.json())
     .then(data => this.setState({ hits: data.hits, isLoading: false }))
       .catch(error => this.setState({
