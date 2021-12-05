@@ -11,10 +11,11 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 class Lernen extends React.Component {
   constructor(props) {
     super(props);
-    var vorderseite;
-    var rueckseite;
-    var count_karten = 0;
+    this.vorderseite;
+    this.rueckseite;
+    this.count_karten = 0;
   }
+
   state = {
     karten: []
   }
@@ -24,7 +25,7 @@ class Lernen extends React.Component {
         const karten = res.data;
         this.setState({ karten });
         console.log(this.count_karten);
-        console.log(this.state.karten[1]);
+        console.log(this.state.karten[this.count_karten]);
         this.count_karten++;
         if (this.count_karten > karten.length - 1) {
           this.count_karten = 0;
