@@ -37,17 +37,15 @@ class App extends React.Component {
     const { hits, isLoading, error } = this.state;
     if (error) {
       return <p>{error.message}</p>;
+    }function lernen() {
+      window.location.replace("/lernen");
     }
 
     if (isLoading) {
       return <p>Loading ...</p>;
-    }
-    function lernen() {
-      window.location.replace("/lernen");
-    }
-    return (
+    }else{
+      return (
       <>
-      <h1>{hits._id.map()}</h1>
         <div>
           <Helmet>
             <title>{TITLE}</title>
@@ -74,6 +72,8 @@ class App extends React.Component {
 
       </>
     );
+    }
+    
   }
 }
 
