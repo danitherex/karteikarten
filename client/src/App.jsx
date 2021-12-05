@@ -18,25 +18,6 @@ class App extends React.Component {
     var rueckseite;
   }
 
-  state = {
-    karten: []
-  }
-  componentDidMount() {
-    axios.get(API)
-      .then(res => {
-        const karten = res.data;
-        this.setState({ karten });
-        this.karten.map(karte => {
-          this.vorderseite = karte.vorderseite;
-          this.rueckseite = karte.ruekseite;
-        })
-      });
-  }
-
-
-
-
-
 
   render() {
     function lernen() {
