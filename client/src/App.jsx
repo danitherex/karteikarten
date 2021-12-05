@@ -48,7 +48,7 @@ class App extends React.Component {
       return (
       <>
       
-      <h1>{hits._id.map()}</h1>
+      <h1>{hits.map()}</h1>
         <div>
           <Helmet>
             <title>{TITLE}</title>
