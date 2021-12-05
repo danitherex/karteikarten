@@ -27,6 +27,8 @@ class Lernen extends React.Component {
         this.karten = karteng;
         console.log(this.count_karten);
         console.log(this.karten[this.count_karten]);
+        document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
+        document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
         this.count_karten++;
         if (this.count_karten > this.karten.length - 1) {
           this.count_karten = 0;
@@ -60,7 +62,7 @@ class Lernen extends React.Component {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h2 id="voderseiteid">{this.karten[this.count_karten].vorderseite}</h2>
+              <h2 id="voderseiteid"></h2>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item >
@@ -72,7 +74,7 @@ class Lernen extends React.Component {
             />
 
             <Carousel.Caption>
-              <h2 id="rueckseiteid">{this.karten[this.count_karten].ruekseite}</h2>
+              <h2 id="rueckseiteid"></h2>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
