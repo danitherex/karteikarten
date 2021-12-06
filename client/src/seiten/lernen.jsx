@@ -31,7 +31,8 @@ class Lernen extends React.Component {
         document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
       });
   }
-  naechstekarte(counteraddone = 0) {
+  naechstekarte(counteraddone) {
+    counteraddone = counteraddone || 0;
     if (counteraddone === 0) {
       this.count_karten++;
     }
