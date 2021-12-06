@@ -32,7 +32,7 @@ class Lernen extends React.Component {
       });
   }
   naechstekarte(counteraddone = 0) {
-    if (counteraddone == 0) {
+    if (counteraddone === 0) {
       this.count_karten++;
     }
     if (this.count_karten > this.karten.length - 1) {
