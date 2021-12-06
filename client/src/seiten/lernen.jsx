@@ -29,34 +29,31 @@ class Lernen extends React.Component {
         console.log(this.karten[this.count_karten]);
         document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
         document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
-        this.count_karten++;
-        if (this.count_karten > this.karten.length - 1) {
-          this.count_karten = 0;
-        }
       });
   }
-  naechstekarte() {
-    document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
-    document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
-    this.count_karten++;
+  naechstekarte(counteraddone = 0) {
+    if (counteraddone == 0) {
+      this.count_karten++;
+    }
     if (this.count_karten > this.karten.length - 1) {
       this.count_karten = 0;
     }
+    document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
+    document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
+
 
   }
 
   karteloeschen() {
-    axios.delete("/api/items/" + this.karten[this.count_karten-1]._id)
+    axios.delete("/api/items/" + this.karten[this.count_karten]._id)
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
-      this.karten.splice(this.count_karten-1,1);
-      this.count_karten++;
-
-    this.naechstekarte()
+    this.karten.splice(this.count_karten, 1);
+    this.naechstekarte(1);
   }
   render() {
     function home() {
