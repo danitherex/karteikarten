@@ -46,7 +46,7 @@ class Lernen extends React.Component {
   }
 
   karteloeschen() {
-    axios.delete("/api/items/" + this.karten[this.count_karten]._id)
+    axios.delete("/api/items/" + this.karten[this.count_karten-1]._id)
       .then(function (response) {
         console.log(response);
       })
