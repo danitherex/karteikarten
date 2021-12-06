@@ -31,12 +31,8 @@ class Lernen extends React.Component {
         document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
       });
   }
-  naechstekarte(counteraddone) {
+  naechstekarte() {
     this.count_karten++;
-    counteraddone = counteraddone || 1;
-    if (counteraddone === 0) {
-      this.count_karten--;
-    }
     if (this.count_karten > this.karten.length - 1) {
       this.count_karten = 0;
     }
@@ -55,7 +51,7 @@ class Lernen extends React.Component {
         console.log(error);
       });
     this.karten.splice(this.count_karten, 1);
-    this.naechstekarte(0);
+    this.naechstekarte();
   }
   render() {
     function home() {
