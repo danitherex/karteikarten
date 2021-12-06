@@ -53,6 +53,9 @@ class Lernen extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+      this.karten.splice(this.count_karten-1,1);
+      this.count_karten++;
+
     this.naechstekarte()
   }
   render() {
