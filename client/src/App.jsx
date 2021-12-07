@@ -27,40 +27,41 @@ class App extends React.Component {
       axios.get(URL)
         .then(res => {
           const weatherdata = res.data;
-          this.wetter=weatherdata;
+          this.wetter = weatherdata;
           var date = new Date(weatherdata.sys.sunset * 1000);
           var hours = date.getHours();
           var minutes = "0" + date.getMinutes();
           var seconds = "0" + date.getSeconds();
           var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
           console.log("Weather: " + weatherdata.weather[0].description);
-          console.log("Sunset at "+formattedTime);
-          console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2)+ "°C");
+          console.log("Sunset at " + formattedTime);
+          console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
         });
     });
+  }
+  postkarte() {
+    var vorder = document.getElementById("vs");
+    var rueck = document.getElementById("rs");
+    var vordervalue = vorder.value;
+    var rueckvalue = rueck.value;
+    vorder.value = "";
+    rueck.value = "";
+    console.log(this.wetter);
+    const inhalt = { "vorderseite": vordervalue, "ruekseite": rueckvalue }
+    axios.post('/api/items', inhalt)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
   render() {
     function lernen() {
       window.location.replace("/lernen");
     }
 
-    function postkarte() {
-      var vorder = document.getElementById("vs");
-      var rueck = document.getElementById("rs");
-      var vordervalue = vorder.value;
-      var rueckvalue = rueck.value;
-      vorder.value = "";
-      rueck.value = "";
-      console.log(this.wetter);
-      const inhalt = { "vorderseite": vordervalue, "ruekseite": rueckvalue }
-      axios.post('/api/items', inhalt)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
+
 
     return (
       <>
@@ -78,7 +79,7 @@ class App extends React.Component {
             <FormControl as="textarea" aria-label="rueckseite" id="rs" />
           </InputGroup>
           <div className="mb-2">
-            <Button variant="primary" size="lg" onClick={postkarte}>
+            <Button variant="primary" size="lg" onClick={this.postkarte}>
               Nächste Karte
             </Button>
             <Button variant="secondary" size="lg" onClick={lernen}>
