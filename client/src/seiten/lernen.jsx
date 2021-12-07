@@ -92,10 +92,10 @@ class Lernen extends React.Component {
           <Button variant="primary" size="lg" onClick={this.naechstekarte}>
             Nächste Karte Zeigen
           </Button>
-          <Button variant="primary" size="lg" onClick={this.karteloeschen}>
+          <Button variant="secondary" size="lg" onClick={this.karteloeschen}>
             aktuelle Karte löschen
           </Button>
-          <Button variant="primary" size="lg" onClick={home}>
+          <Button variant="secondary" size="lg" onClick={home}>
             Neue Karten Hinzufügen
           </Button>
         </div>
