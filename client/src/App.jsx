@@ -14,10 +14,9 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.wetter = {};
+    this.wetter=null;
     this.postkarte = this.postkarte.bind(this);
   }
-
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -27,7 +26,6 @@ class App extends React.Component {
       axios.get(URL)
         .then(res => {
           const weatherdata = res.data;
-          this.wetter = weatherdata;
           var date = new Date(weatherdata.sys.sunset * 1000);
           var hours = date.getHours();
           var minutes = "0" + date.getMinutes();
@@ -36,6 +34,7 @@ class App extends React.Component {
           console.log("Weather: " + weatherdata.weather[0].description);
           console.log("Sunset at " + formattedTime);
           console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
+          this.wetter=res.data;
         });
     });
   }
