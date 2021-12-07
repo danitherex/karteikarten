@@ -27,7 +27,14 @@ class App extends React.Component {
       axios.get(URL)
         .then(res => {
           const weatherdata = res.data;
-          console.log(weatherdata);
+          var date = new Date(weatherdata.sys.sunset * 1000);
+          var hours = date.getHours();
+          var minutes = "0" + date.getMinutes();
+          var seconds = "0" + date.getSeconds();
+          var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+          console.log("Weather: " + weatherdata.weather[0].description);
+          console.log("Sunset at "+formattedTime);
+          console.log("Temperature: " + weatherdata.main.temp - 273.15 + "°C");
         });
     });
   }
