@@ -22,8 +22,8 @@ class App extends React.Component {
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log("Latitude is :", position.coords.latitude);
-      console.log("Longitude is :", position.coords.longitude);
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
       const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=15c46e32275c804eef0433e4af545129`
       axios.get(URL)
         .then(res => {
