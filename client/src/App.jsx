@@ -1,4 +1,4 @@
-import React from 'react';
+import { React } from 'react';
 import { Outlet } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,7 +14,6 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.wetter = null;
     this.postkarte = this.postkarte.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -24,22 +23,22 @@ class App extends React.Component {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
       const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=15c46e32275c804eef0433e4af545129`
-      axios.get(URL)
-        .then(res => {
-          const weatherdata = res.data;
-          var date = new Date(weatherdata.sys.sunset * 1000);
-          var hours = date.getHours();
-          var minutes = "0" + date.getMinutes();
-          var seconds = "0" + date.getSeconds();
-          var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-          document.getElementById("sunset").innerHTML="Sunset at " + formattedTime;
-          document.getElementById("temperature").innerHTML="Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C";
-          document.getElementById("weather").innerHTML="Weather: " + weatherdata.weather[0].description;
-          console.log("Weather: " + weatherdata.weather[0].description);
-          console.log("Sunset at " + formattedTime);
-          console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
-          this.wetter = res.data;
-        });
+      setInterval(() =>
+        axios.get(URL)
+          .then(res => {
+            const weatherdata = res.data;
+            var date = new Date(weatherdata.sys.sunset * 1000);
+            var hours = date.getHours();
+            var minutes = "0" + date.getMinutes();
+            var seconds = "0" + date.getSeconds();
+            var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+            document.getElementById("sunset").innerHTML = "Sunset at " + formattedTime;
+            document.getElementById("temperature").innerHTML = "Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C";
+            document.getElementById("weather").innerHTML = "Weather: " + weatherdata.weather[0].description;
+            console.log("Weather: " + weatherdata.weather[0].description);
+            console.log("Sunset at " + formattedTime);
+            console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
+          }), 6000);
     });
   }
   postkarte() {

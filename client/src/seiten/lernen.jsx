@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Helmet } from 'react-helmet';
 import React from 'react';
 import image from "./back.jpg"
-import { Button, Carousel } from 'react-bootstrap';
+import { Button, Carousel, Nav } from 'react-bootstrap';
 import axios from 'axios';
 
 const TITLE = 'Karteikarten';
@@ -30,6 +30,27 @@ class Lernen extends React.Component {
         document.getElementById("voderseiteid").innerHTML = this.karten[this.count_karten].vorderseite;
         document.getElementById("rueckseiteid").innerHTML = this.karten[this.count_karten].ruekseite;
       });
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=15c46e32275c804eef0433e4af545129`
+      setInterval(()=>  
+        axios.get(URL)
+          .then(res => {
+            const weatherdata = res.data;
+            var date = new Date(weatherdata.sys.sunset * 1000);
+            var hours = date.getHours();
+            var minutes = "0" + date.getMinutes();
+            var seconds = "0" + date.getSeconds();
+            var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+            document.getElementById("sunset").innerHTML = "Sunset at " + formattedTime;
+            document.getElementById("temperature").innerHTML = "Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C";
+            document.getElementById("weather").innerHTML = "Weather: " + weatherdata.weather[0].description;
+            console.log("Weather: " + weatherdata.weather[0].description);
+            console.log("Sunset at " + formattedTime);
+            console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
+          }),6000);
+    });
   }
   naechstekarte() {
     this.count_karten++;
@@ -63,6 +84,11 @@ class Lernen extends React.Component {
         <Helmet>
           <title>{TITLE}</title>
         </Helmet>
+        <Nav defaultActiveKey="/home" className="flex-column">
+          <Nav.Link id="sunset" disabled></Nav.Link>
+          <Nav.Link id="temperature" disabled></Nav.Link>
+          <Nav.Link id="weather" disabled></Nav.Link>
+        </Nav>
         <Carousel interval={null} >
           <Carousel.Item >
             <img
