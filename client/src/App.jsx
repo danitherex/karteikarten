@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, InputGroup, FormControl, Carousel } from 'react-bootstrap';
+import { Button, InputGroup, FormControl, Nav } from 'react-bootstrap';
 
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.wetter=null;
+    this.wetter = null;
     this.postkarte = this.postkarte.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
   }
@@ -32,10 +32,13 @@ class App extends React.Component {
           var minutes = "0" + date.getMinutes();
           var seconds = "0" + date.getSeconds();
           var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+          document.getElementById("sunset").innerHTML="Sunset at " + formattedTime;
+          document.getElementById("temperature").innerHTML="Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C";
+          document.getElementById("weather").innerHTML="Weather: " + weatherdata.weather[0].description;
           console.log("Weather: " + weatherdata.weather[0].description);
           console.log("Sunset at " + formattedTime);
           console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
-          this.wetter=res.data;
+          this.wetter = res.data;
         });
     });
   }
@@ -46,7 +49,6 @@ class App extends React.Component {
     var rueckvalue = rueck.value;
     vorder.value = "";
     rueck.value = "";
-    console.log(this.wetter);
     const inhalt = { "vorderseite": vordervalue, "ruekseite": rueckvalue }
     axios.post('/api/items', inhalt)
       .then(function (response) {
@@ -70,6 +72,11 @@ class App extends React.Component {
           <Helmet>
             <title>{TITLE}</title>
           </Helmet>
+          <Nav defaultActiveKey="/home" className="flex-column">
+            <Nav.Link id="sunset" disabled></Nav.Link>
+            <Nav.Link id="temperature" disabled></Nav.Link>
+            <Nav.Link id="weather" disabled></Nav.Link>
+          </Nav>
           <InputGroup>
             <InputGroup.Text >Vorderseite Karteikarte </InputGroup.Text>
             <FormControl as="textarea" aria-label="vorderseite" id="vs" />
