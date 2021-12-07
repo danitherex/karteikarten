@@ -34,7 +34,7 @@ class App extends React.Component {
           var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
           console.log("Weather: " + weatherdata.weather[0].description);
           console.log("Sunset at "+formattedTime);
-          console.log("Temperature: " + (weatherdata.main.temp - 273.15) + "°C");
+          console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2)+ "°C");
         });
     });
   }
@@ -82,7 +82,7 @@ class App extends React.Component {
             <Button variant="secondary" size="lg" onClick={lernen}>
               Lernen
             </Button>
-          
+
 
           </div>
 
