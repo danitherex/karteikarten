@@ -16,6 +16,7 @@ class App extends React.Component {
     super(props);
     this.wetter=null;
     this.postkarte = this.postkarte.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
