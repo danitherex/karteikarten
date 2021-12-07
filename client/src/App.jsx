@@ -14,8 +14,8 @@ const API = 'https://lernenmitkarteikarten.herokuapp.com/api/items';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    var vorderseite;
-    var rueckseite;
+    this.wetter = {};
+    this.postkarte = this.postkarte.bind(this);
   }
 
 
@@ -27,6 +27,7 @@ class App extends React.Component {
       axios.get(URL)
         .then(res => {
           const weatherdata = res.data;
+          this.wetter=weatherdata;
           var date = new Date(weatherdata.sys.sunset * 1000);
           var hours = date.getHours();
           var minutes = "0" + date.getMinutes();
@@ -50,6 +51,7 @@ class App extends React.Component {
       var rueckvalue = rueck.value;
       vorder.value = "";
       rueck.value = "";
+      console.log(this.wetter);
       const inhalt = { "vorderseite": vordervalue, "ruekseite": rueckvalue }
       axios.post('/api/items', inhalt)
         .then(function (response) {
