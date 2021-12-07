@@ -16,7 +16,6 @@ class App extends React.Component {
     super(props);
     var vorderseite;
     var rueckseite;
-    this.weatherdata = null;
   }
 
 
@@ -28,7 +27,6 @@ class App extends React.Component {
       axios.get(URL)
         .then(res => {
           const weatherdata = res.data;
-          this.weatherdata = weatherdata;
           console.log(weatherdata);
         });
     });
