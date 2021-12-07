@@ -16,9 +16,18 @@ class App extends React.Component {
     super(props);
     var vorderseite;
     var rueckseite;
+    this.state = {
+
+    };
   }
 
 
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+    });
+  }
   render() {
     function lernen() {
       window.location.replace("/lernen");
