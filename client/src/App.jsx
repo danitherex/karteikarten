@@ -16,7 +16,7 @@ class App extends React.Component {
     super(props);
     var vorderseite;
     var rueckseite;
-    this.weatherdata = [];
+    this.weatherdata = null;
   }
 
 
@@ -29,7 +29,7 @@ class App extends React.Component {
         .then(res => {
           const weatherdata = res.data;
           this.weatherdata = weatherdata;
-          console.log(this.weatherdata);
+          console.log(weatherdata);
         });
     });
   }
