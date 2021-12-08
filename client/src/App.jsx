@@ -34,8 +34,13 @@ class App extends React.Component {
           var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
           document.getElementById("sunset").innerHTML = "Sunset at " + formattedTime;
           document.getElementById("temperature").innerHTML = "Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C";
-          document.getElementById("weather").innerHTML = "Weather: " + weatherdata.weather[0].description;
-          console.log("Weather: " + weatherdata.weather[0].description);
+          //document.getElementById("weather").innerHTML = "Weather: " + weatherdata.weather[0].description;
+          axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${weatherdata.weather[0].description}`)
+            .then(rest=>{
+              document.getElementById("weather").innerHTML = "Weather: " + rest.data;
+              console.log("Wetter: " + rest.data);
+            });
+          //console.log("Weather: " + weatherdata.weather[0].description);
           console.log("Sunset at " + formattedTime);
           console.log("Temperature: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
         })
