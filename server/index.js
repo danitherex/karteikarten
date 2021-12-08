@@ -1,6 +1,7 @@
 const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 var ObjectId = require('mongodb').ObjectID;
+const axios = require("axios");
 
 const path = require("path");
 const dbName = "karteikarten";
@@ -8,7 +9,6 @@ const mongoUri = `mongodb+srv://WebEng:TINF21AI2@karteikarten.fkotr.mongodb.net/
 const collectionName = "karten";
 const PORT = process.env.PORT || 3001;
 
-// bullshiet
 async function main() {
 
   const app = express();
