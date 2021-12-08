@@ -1,7 +1,7 @@
 const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 var ObjectId = require('mongodb').ObjectID;
-
+const axios = require("axios");
 const path = require("path");
 const dbName = "karteikarten";
 const mongoUri = `mongodb+srv://WebEng:TINF21AI2@karteikarten.fkotr.mongodb.net/${dbName}`;
@@ -27,6 +27,21 @@ async function main() {
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
 
+
+    app.get("/translate", async (req, res) => {
+      try {
+        axios.get('https://api-free.deepl.com/v2/translate?auth_key=1b2bd1aa-5252-552b-38b0-550b70825f41:fx&text=Hello, world&target_lang=DE')
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
+      }
+    });
 
     app.get("/api/items", async (req, res) => {
       try {
