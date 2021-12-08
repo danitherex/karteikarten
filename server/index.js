@@ -33,6 +33,7 @@ async function main() {
         axios.get('https://api-free.deepl.com/v2/translate?auth_key=1b2bd1aa-5252-552b-38b0-550b70825f41:fx&text=Hello, world&target_lang=DE')
           .then(function (response) {
             console.log(response);
+            res.json(response)
           })
           .catch(function (error) {
             console.log(error);
