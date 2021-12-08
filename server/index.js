@@ -1,7 +1,6 @@
 const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
 var ObjectId = require('mongodb').ObjectID;
-const axios = require("axios");
 
 const path = require("path");
 const dbName = "karteikarten";
