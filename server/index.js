@@ -27,6 +27,24 @@ async function main() {
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
 
+    app.get("/wetter", async (req, res) => {
+      try {
+        const lat = req.query.lat;
+        const lon = req.query.lon;
+        const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=15c46e32275c804eef0433e4af545129`
+        axios.get(URL)
+          .then(function (response) {
+            console.log(response.data);
+            res.json(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
+      }
+    });
 
     app.get("/translate/:tid", async (req, res) => {
       try {
