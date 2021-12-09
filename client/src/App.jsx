@@ -22,8 +22,8 @@ class App extends React.Component {
     navigator.geolocation.getCurrentPosition(function (position) {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
-      const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=15c46e32275c804eef0433e4af545129`
-      axios.get(`https://lernenmitkarteikarten.herokuapp.com/wetter?lat=${lat}&lon=${lon}`)
+      const URL = `https://lernenmitkarteikarten.herokuapp.com/wetter?lat=${lat}&lon=${lon}`;
+      axios.get(URL)
         .then(res => {
           const weatherdata = res.data;
           var date = new Date(weatherdata.sys.sunset * 1000);
@@ -36,26 +36,6 @@ class App extends React.Component {
           //document.getElementById("weather").innerHTML = "Weather: " + weatherdata.weather[0].description;
           axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${weatherdata.weather[0].description}`)
             .then(rest => {
-              document.getElementById("weather").innerHTML = "Wetter: " + rest.data;
-              console.log("Wetter: " + rest.data);
-            });
-          //console.log("Weather: " + weatherdata.weather[0].description);
-          console.log("Sonnenuntergang um " + formattedTime);
-          console.log("Temperatur: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
-        })
-      /*axios.get(URL)
-        .then(res => {
-          const weatherdata = res.data;
-          var date = new Date(weatherdata.sys.sunset * 1000);
-          var hours = date.getHours();
-          var minutes = "0" + date.getMinutes();
-          var seconds = "0" + date.getSeconds();
-          var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-          document.getElementById("sunset").innerHTML = "Sonnenuntergang um " + formattedTime;
-          document.getElementById("temperature").innerHTML = "Temperatur: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C";
-          //document.getElementById("weather").innerHTML = "Weather: " + weatherdata.weather[0].description;
-          axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${weatherdata.weather[0].description}`)
-            .then(rest=>{
               document.getElementById("weather").innerHTML = "Wetter: " + rest.data;
               console.log("Wetter: " + rest.data);
             });
@@ -76,13 +56,13 @@ class App extends React.Component {
           //document.getElementById("weather").innerHTML = "Weather: " + weatherdata.weather[0].description;
           //console.log("Weather: " + weatherdata.weather[0].description);
           axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${weatherdata.weather[0].description}`)
-            .then(rest=>{
+            .then(rest => {
               document.getElementById("weather").innerHTML = "Wetter: " + rest.data;
               console.log("Wetter: " + rest.data);
             });
           console.log("Sonnenuntergang um " + formattedTime);
           console.log("Temperatur: " + (weatherdata.main.temp - 273.15).toFixed(2) + "°C");
-        }), 10000);*/
+        }), 10000);
     });
   }
   postkarte() {
