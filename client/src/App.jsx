@@ -89,7 +89,8 @@ class App extends React.Component {
     if (!(inptvalue.includes("<!doctype html><html lang"))) {
       axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${inptvalue}`)
         .then(rest => {
-          outp.innerHTML = rest.data;
+          if (!(rest.data.includes("<!doctype html><html lang"))) {
+          outp.innerHTML = rest.data;}
           console.log("Übersetzung: " + rest.data);
         });
     }
