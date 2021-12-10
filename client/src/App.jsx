@@ -82,15 +82,17 @@ class App extends React.Component {
         console.log(error);
       });
   }
-  translate() {
-    var inpt = document.getElementById("translate");
-    var outp = document.getElementById("outp");
-    var inptvalue = inpt.value;
-    axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${inptvalue}`)
-      .then(rest => {
-        outp.innerHTML = rest.data;
-        console.log("Übersetzung: " + rest.data);
-      });
+  translate(target) {
+    if(target.charCode==13){
+      var inpt = document.getElementById("translate");
+      var outp = document.getElementById("outp");
+      var inptvalue = inpt.value;
+      axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${inptvalue}`)
+        .then(rest => {
+          outp.innerHTML = rest.data;
+          console.log("Übersetzung: " + rest.data);
+        });
+      }
   }
   render() {
     function lernen() {
@@ -129,16 +131,16 @@ class App extends React.Component {
           </div>
           <InputGroup>
             <InputGroup.Text >Übersetzen ins Deutsche </InputGroup.Text>
-            <FormControl as="textarea" aria-label="translating" id="translate" />
+            <FormControl as="textarea" aria-label="translating" id="translate" onKeyPress={this.translate}/>
           </InputGroup>
           <InputGroup>
             <FormControl as="textarea" aria-label="outp" id="outp" readonly="readonly"/>
           </InputGroup>
-          <div className="mb-2">
+          {/* <div className="mb-2">
             <Button variant="secondary" size="lg" onClick={this.translate}>
               Übersetzten
             </Button>
-          </div>
+          </div> */}
           <Outlet />
         </div>
 
