@@ -16,6 +16,7 @@ class App extends React.Component {
     super(props);
     this.postkarte = this.postkarte.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.translate = this.translate.bind(this);
   }
 
   componentDidMount() {
@@ -81,6 +82,16 @@ class App extends React.Component {
         console.log(error);
       });
   }
+  translate() {
+    var inpt = document.getElementById("translate");
+    var outp = document.getElementById("outp");
+    var inptvalue = inpt.value;
+    axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${inptvalue}`)
+      .then(rest => {
+        outp.innerHTML = "Übersetzung ins Deutsche: " + rest.data;
+        console.log("Übersetzung: " + rest.data);
+      });
+  }
   render() {
     function lernen() {
       window.location.replace("/lernen");
@@ -115,11 +126,19 @@ class App extends React.Component {
             <Button variant="secondary" size="lg" onClick={lernen}>
               Lernen
             </Button>
-
-
           </div>
-
-
+          <InputGroup>
+            <InputGroup.Text >Übersetzen ins Deutsche </InputGroup.Text>
+            <FormControl as="textarea" aria-label="translating" id="translate" />
+          </InputGroup>
+          <InputGroup>
+            <FormControl as="textarea" aria-label="outp" id="outp" readonly="readonly"/>
+          </InputGroup>
+          <div className="mb-2">
+            <Button variant="secondary" size="lg" onClick={this.translate}>
+              Übersetzten
+            </Button>
+          </div>
           <Outlet />
         </div>
 
