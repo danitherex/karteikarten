@@ -86,12 +86,13 @@ class App extends React.Component {
     var inpt = document.getElementById("translate");
     var outp = document.getElementById("outp");
     var inptvalue = inpt.value;
-    axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${inptvalue}`)
-      .then(rest => {
-        outp.innerHTML = rest.data;
-        console.log("Übersetzung: " + rest.data);
-      });
-
+    if (!(inptvalue.includes("<!doctype html><html lang"))) {
+      axios.get(`https://lernenmitkarteikarten.herokuapp.com/translate/${inptvalue}`)
+        .then(rest => {
+          outp.innerHTML = rest.data;
+          console.log("Übersetzung: " + rest.data);
+        });
+    }
   }
   render() {
     function lernen() {
