@@ -49,7 +49,7 @@ async function main() {
     app.get("/translate/:tid", async (req, res) => {
       try {
         const id = req.params.tid;
-        axios.get(`https://api-free.deepl.com/v2/translate?auth_key=1b2bd1aa-5252-552b-38b0-550b70825f41:fx&text=${id}&target_lang=DE`)
+        axios.get(`https://api-free.deepl.com/v2/translate?auth_key=:fx&text=${id}&target_lang=DE`)
           .then(function (response) {
             console.log(response.data);
             res.json(response.data.translations[0].text);
